@@ -4,12 +4,14 @@ void initTable() {
   makeTablePoint();
 }
 
-void dispTable(int player, int no) {
-  if (player == SENTE) senteTable(no);
-  else if (player == GOTE) goteTable(no);
+int dispTable(int player, int no) {
+  if (player == SENTE) return senteTable(no);
+  else if (player == GOTE) return goteTable(no);
+
+  return 0;
 }
 
-void senteTable(int no) {
+int senteTable(int no) {
   int line, col;
   int lineP = 0, colP = 0;
 
@@ -49,9 +51,11 @@ void senteTable(int no) {
   while (input(&lineP, &colP, SENTE, no) == 0);
   score[SENTE] += table[lineP][colP];
   table[lineP][colP] = -99;
+
+  return colP;
 }
 
-void goteTable(int no) {
+int goteTable(int no) {
   int line, col;
   int lineP = 0, colP = 0;
 
@@ -96,6 +100,8 @@ void goteTable(int no) {
   while (input(&lineP, &colP, GOTE, no) == 0);
   score[GOTE] += table[lineP][colP];
   table[lineP][colP] = -99;
+
+  return lineP;
 }
 
 void makeTablePoint() {

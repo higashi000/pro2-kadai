@@ -12,6 +12,6 @@ extern int score[2];
 
 void makeTablePoint();
 void initTable();
-void dispTable(int player, int no);
-void senteTable(int no);
-void goteTable(int no);
+int dispTable(int player, int no);
+int senteTable(int no);
+int goteTable(int no);
