@@ -11,9 +11,9 @@ system("clear");
   int lineP;
   int colP;
   int turn = 0;
-  int tmp = rand() & 19 - 9;
+  int canChoice = rand() % 8;
   while (1) {
-    tmp = dispTable(turn % 2, tmp);
+    canChoice = dispTable(turn % 2, canChoice);
     system("clear");
     turn++;
   }
