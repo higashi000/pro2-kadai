@@ -2,7 +2,10 @@
 
 int input(int* lineP, int* colP, int nowTurn, int nowInput) {
 
-  scanf("%d %d", lineP, colP);
+  printf("行 >> ");
+  scanf("%d", lineP);
+  printf("列 >> ");
+  scanf("%d", colP);
 
   if (table[*lineP][*colP] == -99) {
     printf("This point is already input. Please onemore input.\n");
