@@ -3,7 +3,6 @@
 #include <time.h>
 #include "input.h"
 
-#define SIZE 8
 #define SENTE 0
 #define GOTE 1
 

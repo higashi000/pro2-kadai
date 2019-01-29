@@ -3,38 +3,39 @@
 void game(int canChoice) {
   int lineP;
   int line;
+  int col;
   int colP;
   int turn = 0;
   int cntLimite = 0;
+  int zentan = 0;
 
   while (1) {
     canChoice = dispTable(turn % 2, canChoice);
 
     system("clear");
-    turn++;
+    turn = (turn + 1) % 2;
 
-    if (turn % 2 == 0) {
-      for (line = 0; line < SIZE; ++line) {
-        if (table[canChoice][line] == -99) cntLimite++;
-      }
-      if (cntLimite == SIZE) {
-        result();
-        break;
-      }
-      cntLimite = 0;
-    } else if (turn % 2 == 1){
-      printf("%d\n", canChoice);
-      for (line = 0; line < SIZE; ++line) {
-        if (table[line][canChoice] == -99) cntLimite++;
-      }
-      printf("%d\n", cntLimite);
-      if (cntLimite == SIZE) {
-        result();
-        break;
-      }
-      cntLimite = 0;
+    for (line = 0; line < SIZE; ++line) {
+      if (table[canChoice][line] == -99) cntLimite++;
     }
+    if (cntLimite >= SIZE) {
+      result();
+      return;
+    }
+    cntLimite = 0;
 
+    for (col = 0; col < SIZE; ++col) {
+      for (line = 0; line < SIZE; ++line) {
+        if (table[line][col] == -99) {
+          zentan++;
+        }
+      }
+      if (zentan == SIZE) {
+        result();
+        return;
+      }
+      zentan = 0;
+    }
   }
 }
 
