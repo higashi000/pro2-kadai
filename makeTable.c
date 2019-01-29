@@ -68,8 +68,11 @@ int goteTable(int no) {
 
   printf("     ");
   for (line = 0; line < SIZE; ++line) {
-    if (line == no) printf(" **");
-    else printf("    ");
+    if (line == no){
+      printf(" ##");
+    } else {
+      printf("   ");
+    }
   }
   puts("");
 
@@ -90,7 +93,7 @@ int goteTable(int no) {
   printf("     ");
   for (line = 0; line < SIZE; ++line) {
     if (line == no) {
-      printf(" **");
+      printf(" ##");
     } else {
       printf("   ");
     }
