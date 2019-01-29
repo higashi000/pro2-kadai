@@ -22,10 +22,12 @@ void game(int canChoice) {
         break;
       }
       cntLimite = 0;
-    } else {
+    } else if (turn % 2 == 1){
+      printf("%d\n", canChoice);
       for (line = 0; line < SIZE; ++line) {
         if (table[line][canChoice] == -99) cntLimite++;
       }
+      printf("%d\n", cntLimite);
       if (cntLimite == SIZE) {
         result();
         break;
