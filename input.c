@@ -2,10 +2,16 @@
 
 int input(int* lineP, int* colP, int nowTurn, int nowInput) {
 
-  printf("行 >> ");
-  scanf("%d", lineP);
-  printf("列 >> ");
-  scanf("%d", colP);
+  if (nowTurn == SENTE) {
+    printf("列 >> ");
+    scanf("%d", colP);
+    *lineP = nowInput;
+  } else if (nowTurn == GOTE) {
+    printf("行 >> ");
+    scanf("%d", lineP);
+
+    *colP = nowInput;
+  }
 
   if (table[*lineP][*colP] == -99) {
     printf("This point is already input. Please onemore input.\n");
@@ -13,9 +19,9 @@ int input(int* lineP, int* colP, int nowTurn, int nowInput) {
   }
 
   if (nowTurn == 0) {
-    if (*lineP != nowInput) return 0;
+    if (0 > *colP || *colP > SIZE - 1) return 0;
   } else {
-    if (*colP != nowInput) return 0;
+    if (0 > *lineP || *lineP > SIZE - 1) return 0;
   }
 
   return 1;
