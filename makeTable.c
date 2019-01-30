@@ -47,6 +47,21 @@ int senteTable(int no) {
     }
   }
 
+  puts("");
+  puts("");
+  for (line = 0; line < 29; ++line) printf("-");
+  puts("");
+
+  printf("先手の点数: %d点\n", score[0]);
+  puts("");
+  printf("後手の点数: %d点\n", score[1]);
+  puts("");
+
+  for (line = 0; line < 29; ++line) printf("-");
+  puts("");
+  puts("");
+
+
 
   while (input(&lineP, &colP, SENTE, no) == 0);
   score[SENTE] += table[lineP][colP];
@@ -98,6 +113,18 @@ int goteTable(int no) {
       printf("   ");
     }
   }
+  puts("");
+  puts("");
+  for (line = 0; line < 29; ++line) printf("-");
+  puts("");
+
+  printf("先手の点数: %d点\n", score[0]);
+  puts("");
+  printf("後手の点数: %d点\n", score[1]);
+  puts("");
+
+  for (line = 0; line < 29; ++line) printf("-");
+  puts("");
   puts("");
 
   while (input(&lineP, &colP, GOTE, no) == 0);

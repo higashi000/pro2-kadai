@@ -16,13 +16,17 @@ void game(int canChoice) {
     turn = (turn + 1) % 2;
 
     for (line = 0; line < SIZE; ++line) {
-      if (table[canChoice][line] == -99) cntLimite++;
+      for (col = 0; col < SIZE; ++col) {
+        if (table[line][col] == -99) {
+          zentan++;
+        }
+      }
+      if (zentan == SIZE) {
+        result();
+        return;
+      }
+      zentan = 0;
     }
-    if (cntLimite >= SIZE) {
-      result();
-      return;
-    }
-    cntLimite = 0;
 
     for (col = 0; col < SIZE; ++col) {
       for (line = 0; line < SIZE; ++line) {
