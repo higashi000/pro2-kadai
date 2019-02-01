@@ -1,3 +1,6 @@
+#ifndef PRO2_KAZUTORI_INPUT_H_
+#define PRO2_KAZUTORI_INPUT_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,3 +10,5 @@
 
 extern int table[SIZE][SIZE];
 int input(int* lineP, int* colP, int nowTurn, int nowInput);
+
+#endif
