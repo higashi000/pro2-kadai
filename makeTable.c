@@ -1,5 +1,24 @@
 #include "makeTable.h"
 
+int solver(int colP) {
+  int line;
+  int max = 0;
+  int res = 0;
+
+  for (line = 0; line < SIZE; ++line) {
+    if (max < table[line][colP]) {
+      max = table[line][colP];
+      res = line;
+    }
+  }
+
+
+  score[1] += table[res][colP];
+  table[res][colP] = -99;
+
+  return res;
+}
+
 void initTable() {
   makeTablePoint();
 }
@@ -9,6 +28,11 @@ int dispTable(int player, int no) {
   else if (player == GOTE) return goteTable(no);
 
   return 0;
+}
+
+int onePlayDispTable(int player, int no) {
+  if (player == SENTE) return senteTable(no);
+  else if (player == GOTE) return solver(no);
 }
 
 int senteTable(int no) {

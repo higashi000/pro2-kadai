@@ -11,7 +11,11 @@ void game(int canChoice) {
   int zentan = 0;
 
   while (1) {
-    canChoice = dispTable(turn % 2, canChoice);
+    if (playersNum == 2) {
+      canChoice = dispTable(turn % 2, canChoice);
+    } else {
+      canChoice = onePlayDispTable(turn % 2, canChoice);
+    }
 
     system("clear");
     turn = (turn + 1) % 2;
