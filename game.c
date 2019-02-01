@@ -1,5 +1,6 @@
 #include "game.h"
 
+// ゲーム進行用の関数
 void game(int canChoice) {
   int lineP;
   int line;
@@ -15,6 +16,7 @@ void game(int canChoice) {
     system("clear");
     turn = (turn + 1) % 2;
 
+    // ゲームが終わっているかの選択 ---{{{
     for (line = 0; line < SIZE; ++line) {
       for (col = 0; col < SIZE; ++col) {
         if (table[line][col] == -99) {
@@ -40,9 +42,12 @@ void game(int canChoice) {
       }
       zentan = 0;
     }
+
+    // ゲームが終わっているかの選択 ---}}}
   }
 }
 
+// リザルト
 void result() {
   printf("先手: %d点\n", score[0]);
   printf("後手: %d点\n", score[1]);
